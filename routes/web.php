@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return view('home.index',[]);
-})->name('home.index');
-Route::get("/contact",function(){
-    return view('home.contact',[]);
-})->name('home.contact');
+
+Route::view('/', 'home.index')->name('home.index');
+Route::view('/contact','home.contact')->name('home.contact');
 Route::get('/posts/{id}',function($id){
     $posts = [
         1 => [
