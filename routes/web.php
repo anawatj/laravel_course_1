@@ -20,4 +20,7 @@ Route::get("/contact",function(){
 })->name('home.contact');
 Route::get('/posts/{id}',function($id){
     return "Blog Post ${id}";
-});
+})->name('posts.show');
+Route::get('/recent-posts/{days_ago?}',function($daysAgo=20){
+    return "Post from ${daysAgo} days ago";
+})->name('posts.recent.index');

@@ -33,6 +33,8 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+
     }
 
     /**
@@ -42,12 +44,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        parent::pattern('id', '[0-9]+');
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
 
+
+
         //
     }
+
 
     /**
      * Define the "web" routes for the application.
@@ -61,6 +67,8 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+
+
     }
 
     /**
