@@ -29,6 +29,7 @@ Route::get('/posts/{id}',function($id){
             'content' => 'This is a short intro to PHP'
         ]
     ];
+    abort_if(!isset($posts[$id]),404);
     return view('posts.show',['post'=>$posts[$id]]);
 })->name('posts.show');
 Route::get('/recent-posts/{days_ago?}',function($daysAgo=20){
