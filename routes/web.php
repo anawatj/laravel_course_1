@@ -19,7 +19,17 @@ Route::get("/contact",function(){
     return view('home.contact',[]);
 })->name('home.contact');
 Route::get('/posts/{id}',function($id){
-    return "Blog Post ${id}";
+    $posts = [
+        1 => [
+            'title' => 'Intro to Laravel',
+            'content' => 'This is a short intro to Laravel'
+        ],
+        2 => [
+            'title' => 'Intro to PHP',
+            'content' => 'This is a short intro to PHP'
+        ]
+    ];
+    return view('posts.show',['post'=>$posts[$id]]);
 })->name('posts.show');
 Route::get('/recent-posts/{days_ago?}',function($daysAgo=20){
     return "Post from ${daysAgo} days ago";
